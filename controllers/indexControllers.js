@@ -2791,12 +2791,21 @@ exports.Edit_Profile_Password = catchAsyncErrors(async (req, res, next) => {
 
 exports.Review_Data = catchAsyncErrors(async (req, res) => {
   try {
-    const { wordRating, storyRating, questionRating, comment } = req.body;
+    const {
+      wordRating,
+      storyRating,
+      questionRating,
+      comment,
+      Student_id,
+      StoryTitle,
+    } = req.body;
     const rating = new Rating({
       wordRating,
       storyRating,
       questionRating,
       comment,
+      Student_id,
+      StoryTitle,
     });
     console.log(rating, "..........ratingBackend");
     await rating.save();
